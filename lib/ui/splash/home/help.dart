@@ -1,5 +1,6 @@
 import 'package:customer_beta/constants/Constants.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Help extends StatefulWidget {
   @override
@@ -53,9 +54,8 @@ class _HelpState extends State<Help> {
                 itemBuilder: (_, i) {
                   return i % 2 == 0
                       ? Container(
-                          width: MediaQuery.of(context).size.width / 3,
                           padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
-                          margin: EdgeInsets.fromLTRB(5.0, 0.0, 25.0, 20.0),
+                          margin: EdgeInsets.fromLTRB(5.0, 0.0, 35.0, 20.0),
                           decoration: BoxDecoration(
                             color: Color.fromRGBO(245, 245, 245, 1.0),
                             border: Border.all(
@@ -84,9 +84,8 @@ class _HelpState extends State<Help> {
                           ),
                         )
                       : Container(
-                          width: MediaQuery.of(context).size.width / 3,
                           padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
-                          margin: EdgeInsets.fromLTRB(25.0, 0.0, 5.0, 20.0),
+                          margin: EdgeInsets.fromLTRB(35.0, 0.0, 5.0, 20.0),
                           decoration: BoxDecoration(
                             color: Color.fromRGBO(19, 153, 159, 1.0),
                             border: Border.all(
@@ -109,6 +108,7 @@ class _HelpState extends State<Help> {
                           child: Text(
                             Constants.LOREM_IPSUM,
                             style: TextStyle(
+
                                 fontSize: 17.0,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500),
@@ -161,7 +161,7 @@ class _HelpState extends State<Help> {
                   Row(
                     children: <Widget>[
                       Container(
-                        margin: EdgeInsets.fromLTRB(20.0, .0, .0, .0),
+                        margin: EdgeInsets.fromLTRB(0.0, .0, .0, .0),
                         child: IconButton(
                           icon: Icon(Icons.gif, size: 40, color: Colors.black45,),
                         )
@@ -169,7 +169,7 @@ class _HelpState extends State<Help> {
                       Container(
                         margin: EdgeInsets.fromLTRB(20.0, .0, .0, .0),
                         child: IconButton(
-                          icon: Icon(Icons.image, size: 40, color: Colors.black45,),
+                          icon: Icon(Icons.photo_album, size: 40, color: Colors.black45,),
                         ),
                       )
                     ],

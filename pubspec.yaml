@@ -28,6 +28,10 @@ dependencies:
   font_awesome_flutter: ^8.5.0
   carousel_slider: ^1.4.1
   flutter_calendar_carousel: ^1.4.10
+  grouped_buttons: ^1.0.4
+  qr_flutter:
+    git:
+      url: git://github.com/lukef/qr.flutter.git
 
 
 
