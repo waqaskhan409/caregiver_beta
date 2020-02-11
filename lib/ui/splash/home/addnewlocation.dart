@@ -307,7 +307,6 @@ class _AddNewLocationState extends State<AddNewLocation> {
           margin: EdgeInsets.fromLTRB(20, 10.0, 20.0, .0),
           width: MediaQuery.of(context).size.width,
           height: 200,
-
           child: GoogleMap(
             onMapCreated: _onMapCreated,
             initialCameraPosition: CameraPosition(

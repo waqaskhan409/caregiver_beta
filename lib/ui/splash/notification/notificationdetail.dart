@@ -397,9 +397,11 @@ class _JobDetailState extends State<JobDetail> {
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(20)),
                                         ),
-                                        child: Text(
-                                          "View Profile",
-                                          style: TextStyle(color: Colors.white),
+                                        child: Center(
+                                          child: Text(
+                                            "View Profile",
+                                            style: TextStyle(color: Colors.white),
+                                          ),
                                         ),
                                       )
                                     ],

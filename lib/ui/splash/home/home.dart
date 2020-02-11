@@ -5,6 +5,8 @@ import 'package:customer_beta/ui/splash/home/help.dart';
 import 'package:customer_beta/ui/splash/home/latestnews.dart';
 import 'package:customer_beta/ui/splash/home/locationcoverage.dart';
 import 'package:customer_beta/ui/splash/home/setschedule.dart';
+import 'package:customer_beta/ui/splash/home/tutorials.dart';
+import 'package:customer_beta/ui/splash/home/weblink.dart';
 import 'package:customer_beta/ui/splash/jobs/jobs.dart';
 import 'package:customer_beta/ui/splash/notification/notification.dart';
 import 'package:customer_beta/ui/splash/notification/notificationdetail.dart';
@@ -342,44 +344,62 @@ class _HomeState extends State<Home> {
                   Spacer(
                     flex: 1,
                   ),
-                  Column(
-                    children: <Widget>[
-                      Image.asset(
-                        "assets/images/tutorial.png",
-                        width: 45,
-                        height: 45,
-                      ),
-                      Container(
-                        width: 100,
-                        margin: EdgeInsets.fromLTRB(.0, 5.0, 0.0, 0.0),
-                        child: Text(
-                          "Tutorial",
-                          style: TextStyle(fontSize: 12),
-                          textAlign: TextAlign.center,
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (_){
+                          return Tutorails();
+                        }
+                      ));
+                    },
+                    child: Column(
+                      children: <Widget>[
+                        Image.asset(
+                          "assets/images/tutorial.png",
+                          width: 45,
+                          height: 45,
                         ),
-                      )
-                    ],
+                        Container(
+                          width: 100,
+                          margin: EdgeInsets.fromLTRB(.0, 5.0, 0.0, 0.0),
+                          child: Text(
+                            "Tutorial",
+                            style: TextStyle(fontSize: 12),
+                            textAlign: TextAlign.center,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                   Spacer(
                     flex: 1,
                   ),
-                  Column(
-                    children: <Widget>[
-                      Image.asset(
-                        "assets/images/link_to_website.png",
-                        width: 45,
-                        height: 45,
-                      ),
-                      Container(
-                        width: 100,
-                        margin: EdgeInsets.fromLTRB(.0, 5.0, 0.0, 0.0),
-                        child: Text(
-                          "Link to Website",
-                          style: TextStyle(fontSize: 12),
-                          textAlign: TextAlign.center,
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (_){
+                            return WebLink();
+                          }
+                      ));
+                    },
+                    child: Column(
+                      children: <Widget>[
+                        Image.asset(
+                          "assets/images/link_to_website.png",
+                          width: 45,
+                          height: 45,
                         ),
-                      )
-                    ],
+                        Container(
+                          width: 100,
+                          margin: EdgeInsets.fromLTRB(.0, 5.0, 0.0, 0.0),
+                          child: Text(
+                            "Link to Website",
+                            style: TextStyle(fontSize: 12),
+                            textAlign: TextAlign.center,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                   Spacer(
                     flex: 1,

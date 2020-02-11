@@ -1,3 +1,4 @@
+import 'package:customer_beta/ui/splash/chat/individualchat.dart';
 import 'package:customer_beta/ui/splash/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:customer_beta/ui/splash/chat/chat.dart';
@@ -112,135 +113,148 @@ class _ChatState extends State<Chat> {
       ),
       body: Column(
         children: <Widget>[
-          Container(
-            margin: EdgeInsets.fromLTRB(10.0, 10.0, 0.0, 0.0),
-            color: Colors.white,
-            padding: EdgeInsets.fromLTRB(.0, 10, .0, 10),
+          GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (_){
+                return IndividualChat();
+              }));
+            },
+            child: Container(
+              margin: EdgeInsets.fromLTRB(10.0, 10.0, 0.0, 0.0),
+              color: Colors.white,
+              padding: EdgeInsets.fromLTRB(.0, 10, .0, 10),
               child: Column(
-              children: <Widget>[
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.fromLTRB(10.0, 10.0, 0.0, 0.0),
-                      child: Image.asset(
-                        "assets/images/avatar3.png",
-                        width: 50,
-                        height: 50,
-                      ),
-                    ),
-                    Container(
-                        width: MediaQuery.of(context).size.width/1.4,
+                children: <Widget>[
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
                         margin: EdgeInsets.fromLTRB(10.0, 10.0, 0.0, 0.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text("Aliah Shamsudin",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 15)),
-                            Row(
-                              children: <Widget>[
-                                Container(
-                                  width: MediaQuery.of(context).size.width/2,
-                                  child: Text(
-                                    "Lorem ipsum alskd asldka sdlka sdlaksdasda ;aksdaskd",
-                                    maxLines: 1,
-                                    style: TextStyle(color: Colors.black45),
+                        child: Image.asset(
+                          "assets/images/avatar3.png",
+                          width: 50,
+                          height: 50,
+                        ),
+                      ),
+                      Container(
+                          width: MediaQuery.of(context).size.width/1.4,
+                          margin: EdgeInsets.fromLTRB(10.0, 10.0, 0.0, 0.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text("Aliah Shamsudin",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 15)),
+                              Row(
+                                children: <Widget>[
+                                  Container(
+                                    width: MediaQuery.of(context).size.width/2,
+                                    child: Text(
+                                      "Lorem ipsum alskd asldka sdlka sdlaksdasda ;aksdaskd",
+                                      maxLines: 1,
+                                      style: TextStyle(color: Colors.black45),
 
-                                    overflow: TextOverflow.ellipsis,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
                                   ),
-                                ),
-                                Spacer(),
-                                Container(
-                                  margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, .0),
-                                  child: Text(
-                                    "1h",
-                                    style: TextStyle(color: Colors.black45),
-                                  ),
-                                )
+                                  Spacer(),
+                                  Container(
+                                    margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, .0),
+                                    child: Text(
+                                      "1h",
+                                      style: TextStyle(color: Colors.black45),
+                                    ),
+                                  )
 
-                              ],
-                            ),
+                                ],
+                              ),
 
 
-                          ],
-                        )),
-                    Spacer(),
-                    Container(
-                      margin: EdgeInsets.fromLTRB(.0, 15, 2.0, .0),
-                      height: 30,
-                      width: 10,
-                      color: Colors.red,
-                    )
+                            ],
+                          )),
+                      Spacer(),
+                      Container(
+                        margin: EdgeInsets.fromLTRB(.0, 15, 2.0, .0),
+                        height: 30,
+                        width: 10,
+                        color: Colors.red,
+                      )
 
-                  ],
-                )
-              ],
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
-          Container(
-            margin: EdgeInsets.fromLTRB(10.0, 10.0, 0.0, 0.0),
-            color: Colors.white,
+          GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (_){
+                return IndividualChat();
+              }));
+            },
+            child: Container(
+              margin: EdgeInsets.fromLTRB(10.0, 10.0, 0.0, 0.0),
+              color: Colors.white,
 
-            padding: EdgeInsets.fromLTRB(.0, 10, .0, 10),
-            child: Column(
-              children: <Widget>[
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.fromLTRB(10.0, 10.0, 0.0, 0.0),
-                      child: Image.asset(
-                        "assets/images/avatar1.png",
-                        width: 50,
-                        height: 50,
-                      ),
-                    ),
-                    Container(
+              padding: EdgeInsets.fromLTRB(.0, 10, .0, 10),
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
                         margin: EdgeInsets.fromLTRB(10.0, 10.0, 0.0, 0.0),
-                        width: MediaQuery.of(context).size.width/1.4,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text("Chin Sin",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 15)),
-                            Row(
-                              children: <Widget>[
-                                Container(
-                                  width: MediaQuery.of(context).size.width/2,
-                                  child: Text(
-                                    "Lorem ipsum alskd asldka sdlka sdlaksdasda ;aksdaskd",
-                                    maxLines: 1,
-                                    style: TextStyle(color: Colors.black45),
+                        child: Image.asset(
+                          "assets/images/avatar1.png",
+                          width: 50,
+                          height: 50,
+                        ),
+                      ),
+                      Container(
+                          margin: EdgeInsets.fromLTRB(10.0, 10.0, 0.0, 0.0),
+                          width: MediaQuery.of(context).size.width/1.4,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text("Chin Sin",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 15)),
+                              Row(
+                                children: <Widget>[
+                                  Container(
+                                    width: MediaQuery.of(context).size.width/2,
+                                    child: Text(
+                                      "Lorem ipsum alskd asldka sdlka sdlaksdasda ;aksdaskd",
+                                      maxLines: 1,
+                                      style: TextStyle(color: Colors.black45),
 
-                                    overflow: TextOverflow.ellipsis,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
                                   ),
-                                ),
-                                Spacer(),
-                                Container(
-                                  margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, .0),
-                                  child: Text(
-                                    "1h",
-                                    style: TextStyle(color: Colors.black45),
-                                  ),
-                                )
+                                  Spacer(),
+                                  Container(
+                                    margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, .0),
+                                    child: Text(
+                                      "1h",
+                                      style: TextStyle(color: Colors.black45),
+                                    ),
+                                  )
 
-                              ],
-                            ),
+                                ],
+                              ),
 
 
-                          ],
-                        )),
-                    Spacer(),
+                            ],
+                          )),
+                      Spacer(),
 //                    Container(
 //                      margin: EdgeInsets.fromLTRB(.0, 15, 2.0, .0),
 //                      height: 30,
@@ -248,68 +262,75 @@ class _ChatState extends State<Chat> {
 //                      color: Colors.red,
 //                    )
 
-                  ],
-                )
-              ],
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
-          Container(
-            margin: EdgeInsets.fromLTRB(10.0, 10.0, 0.0, 0.0),
-            color: Colors.white,
-            padding: EdgeInsets.fromLTRB(.0, 10, .0, 10),
-            child: Column(
-              children: <Widget>[
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.fromLTRB(10.0, 10.0, 0.0, 0.0),
-                      child: Image.asset(
-                        "assets/images/avatar2.png",
-                        width: 50,
-                        height: 50,
-                      ),
-                    ),
-                    Container(
-                        width: MediaQuery.of(context).size.width/1.4,
+          GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (_){
+                return IndividualChat();
+              }));
+            },
+            child: Container(
+              margin: EdgeInsets.fromLTRB(10.0, 10.0, 0.0, 0.0),
+              color: Colors.white,
+              padding: EdgeInsets.fromLTRB(.0, 10, .0, 10),
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
                         margin: EdgeInsets.fromLTRB(10.0, 10.0, 0.0, 0.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text("Amirah Yousaf",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 15)),
-                            Row(
-                              children: <Widget>[
-                                Container(
-                                  width: MediaQuery.of(context).size.width/2,
-                                  child: Text(
-                                    "Lorem ipsum alskd asldka sdlka sdlaksdasda ;aksdaskd",
-                                    maxLines: 1,
-                                    style: TextStyle(color: Colors.black45),
+                        child: Image.asset(
+                          "assets/images/avatar2.png",
+                          width: 50,
+                          height: 50,
+                        ),
+                      ),
+                      Container(
+                          width: MediaQuery.of(context).size.width/1.4,
+                          margin: EdgeInsets.fromLTRB(10.0, 10.0, 0.0, 0.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text("Amirah Yousaf",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 15)),
+                              Row(
+                                children: <Widget>[
+                                  Container(
+                                    width: MediaQuery.of(context).size.width/2,
+                                    child: Text(
+                                      "Lorem ipsum alskd asldka sdlka sdlaksdasda ;aksdaskd",
+                                      maxLines: 1,
+                                      style: TextStyle(color: Colors.black45),
 
-                                    overflow: TextOverflow.ellipsis,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
                                   ),
-                                ),
-                                Spacer(),
-                                Container(
-                                  margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, .0),
-                                  child: Text(
-                                    "1h",
-                                    style: TextStyle(color: Colors.black45),
-                                  ),
-                                )
+                                  Spacer(),
+                                  Container(
+                                    margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, .0),
+                                    child: Text(
+                                      "1h",
+                                      style: TextStyle(color: Colors.black45),
+                                    ),
+                                  )
 
-                              ],
-                            ),
+                                ],
+                              ),
 
-                          ],
-                        )),
-                    Spacer(),
+                            ],
+                          )),
+                      Spacer(),
 //                    Container(
 //                      margin: EdgeInsets.fromLTRB(.0, 15, 2.0, .0),
 //                      height: 30,
@@ -319,9 +340,10 @@ class _ChatState extends State<Chat> {
 
 
 
-                  ],
-                )
-              ],
+                    ],
+                  )
+                ],
+              ),
             ),
           )
         ],

@@ -29,6 +29,10 @@ dependencies:
   carousel_slider: ^1.4.1
   flutter_calendar_carousel: ^1.4.10
   grouped_buttons: ^1.0.4
+  image_picker: ^0.6.3+1
+  image_cropper: ^1.0.4
+  webview_flutter: ^0.3.19+7
+
   qr_flutter:
     git:
       url: git://github.com/lukef/qr.flutter.git
@@ -114,6 +118,20 @@ flutter:
     - assets/images/image20.png
     - assets/images/image21.png
     - assets/images/image22.png
+    - assets/images/cert1.png
+    - assets/images/cert2.png
+    - assets/images/ic.png
+    - assets/images/img-upload.png
+    - assets/images/passport.png
+    - assets/images/visa.png
+    - assets/images/emoticons.png
+    - assets/images/file_upload.png
+    - assets/images/image_upload.png
+
+
+
+
+
   fonts:
     - family: Axiforma
       fonts:

@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:customer_beta/constants/Constants.dart';
 import 'package:customer_beta/ui/splash/home/home.dart';
+import 'package:customer_beta/ui/splash/login/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 
@@ -231,7 +232,7 @@ class _EmailConformationState extends State<EmailConformation> {
                         Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => Home(),
+                              builder: (_) => CareGiverProfile(),
                             ),
                                 (e) => false);
                         pr.dismiss();
