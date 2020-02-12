@@ -32,6 +32,8 @@ dependencies:
   image_picker: ^0.6.3+1
   image_cropper: ^1.0.4
   webview_flutter: ^0.3.19+7
+#  emoji_picker: ^0.1.0
+  file_picker: ^1.4.3+2
 
   qr_flutter:
     git:
@@ -127,6 +129,19 @@ flutter:
     - assets/images/emoticons.png
     - assets/images/file_upload.png
     - assets/images/image_upload.png
+    - assets/images/affinbank 1.png
+    - assets/images/ambank 1.png
+    - assets/images/bankislam 1.png
+    - assets/images/bankrakyat 1.png
+    - assets/images/bsn 1.png
+    - assets/images/cimb 1.png
+    - assets/images/Group 533.png
+    - assets/images/hong leong connect 1.png
+    - assets/images/hsbc 1.png
+    - assets/images/maybank 1.png
+    - assets/images/public bank 1.png
+    - assets/images/rhb now 1.png
+    - assets/images/standardchartered 1.png
 
 
 

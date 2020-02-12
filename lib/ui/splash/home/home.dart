@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:customer_beta/constants/Constants.dart';
 import 'package:customer_beta/ui/splash/chat/chat.dart';
+import 'package:customer_beta/ui/splash/chat/individualchat.dart';
 import 'package:customer_beta/ui/splash/home/help.dart';
 import 'package:customer_beta/ui/splash/home/latestnews.dart';
 import 'package:customer_beta/ui/splash/home/locationcoverage.dart';
@@ -549,9 +550,19 @@ class _HomeState extends State<Home> {
                           width: MediaQuery.of(context).size.width / 2.5,
                         ),
                       ),
-                      Image.asset(
-                        "assets/images/message.png",
-                        width: MediaQuery.of(context).size.width / 2.5,
+                      GestureDetector(
+                        onTap: (){
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => IndividualChat(),
+          ));
+
+                        },
+                        child: Image.asset(
+                          "assets/images/message.png",
+                          width: MediaQuery.of(context).size.width / 2.5,
+                        ),
                       )
                     ],
                   ),

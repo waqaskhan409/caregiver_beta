@@ -1,4 +1,5 @@
 import 'package:customer_beta/constants/Constants.dart';
+import 'package:customer_beta/ui/splash/chat/individualchat.dart';
 import 'package:customer_beta/ui/splash/home/home.dart';
 import 'package:customer_beta/ui/splash/jobs/jobfilters.dart';
 import 'package:customer_beta/ui/splash/jobs/progressreport.dart';
@@ -18,10 +19,13 @@ class Jobs extends StatefulWidget {
 
 class _JobsState extends State<Jobs> {
   int _selectedIndex = 2;
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         backgroundColor: Colors.white,
         actions: <Widget>[
@@ -365,6 +369,14 @@ class _JobsState extends State<Jobs> {
                           ),
                         ),
                         GestureDetector(
+                          onTap: (){
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => IndividualChat(),
+                                ));
+
+                          },
                           child: Image.asset(
                             "assets/images/message.png",
                             width: MediaQuery.of(context).size.width / 2.5,
@@ -456,45 +468,61 @@ class _JobsState extends State<Jobs> {
                       margin: EdgeInsets.fromLTRB(.0, 15.0, .0, 10.0),
                       child: Divider(),
                     ),
-                    Container(
-                      margin: EdgeInsets.fromLTRB(0.0, 0.0, .0, .0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[
-                          Stack(
-                            alignment: Alignment.center,
-                            children: <Widget>[
-                              Image.asset(
-                                "assets/images/time_in_option1.png",
-                                width: MediaQuery.of(context).size.width / 2.5,
+                    GestureDetector(
+
+                      child: Container(
+                        margin: EdgeInsets.fromLTRB(0.0, 0.0, .0, .0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: <Widget>[
+                            GestureDetector(
+                                onTap: (){
+                                  _scaffoldKey.currentState
+                                      .showSnackBar(SnackBar(content: Text("Timer has been set")));
+                                },
+                                child: Stack(
+
+                                alignment: Alignment.center,
+                                children: <Widget>[
+                                  Image.asset(
+                                    "assets/images/time_in_option1.png",
+                                    width: MediaQuery.of(context).size.width / 2.5,
+                                  ),
+                                  Positioned(
+                                    bottom: 2,
+                                    child: Text(
+                                      "09:00 AM",
+                                      style: TextStyle(color: Colors.white70),
+                                    ),
+                                  )
+                                ],
                               ),
-                              Positioned(
-                                bottom: 2,
-                                child: Text(
-                                  "09:00 AM",
-                                  style: TextStyle(color: Colors.white70),
-                                ),
-                              )
-                            ],
-                          ),
-                          Stack(
-                            alignment: Alignment.center,
-                            children: <Widget>[
-                              Image.asset(
-                                "assets/images/time_out_option1.png",
-                                width: MediaQuery.of(context).size.width / 2.5,
+                            ),
+                            GestureDetector(
+                              onTap: (){
+                                _scaffoldKey.currentState
+                                    .showSnackBar(SnackBar(content: Text("Timer has been removed")));
+                              },
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: <Widget>[
+                                  Image.asset(
+                                    "assets/images/time_out_option1.png",
+                                    width: MediaQuery.of(context).size.width / 2.5,
+                                  ),
+                                  Positioned(
+                                    bottom: 2,
+                                    child: Text(
+                                      "09:00 AM",
+                                      style: TextStyle(color: Colors.white70),
+                                    ),
+                                  )
+                                ],
                               ),
-                              Positioned(
-                                bottom: 2,
-                                child: Text(
-                                  "09:00 AM",
-                                  style: TextStyle(color: Colors.white70),
-                                ),
-                              )
-                            ],
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     Container(
@@ -515,10 +543,22 @@ class _JobsState extends State<Jobs> {
                               width: MediaQuery.of(context).size.width / 2.5,
                             ),
                           ),
-                          Image.asset(
-                            "assets/images/message.png",
-                            width: MediaQuery.of(context).size.width / 2.5,
+                          GestureDetector(
+                            onTap: (){
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => IndividualChat(),
+                                  ));
+                            },
+                            child: Image.asset(
+
+
+                              "assets/images/message.png",
+                              width: MediaQuery.of(context).size.width / 2.5,
+                            ),
                           )
+
                         ],
                       ),
                     )
@@ -606,47 +646,64 @@ class _JobsState extends State<Jobs> {
                       margin: EdgeInsets.fromLTRB(.0, 15.0, .0, 10.0),
                       child: Divider(),
                     ),
+
+                    GestureDetector(
+
+                      child:
+
                     Container(
                       margin: EdgeInsets.fromLTRB(0.0, 0.0, .0, .0),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
-                          Stack(
-                            alignment: Alignment.center,
-                            children: <Widget>[
-                              Image.asset(
-                                "assets/images/time_in_option1.png",
-                                width: MediaQuery.of(context).size.width / 2.5,
-                              ),
-                              Positioned(
-                                bottom: 2,
-                                child: Text(
-                                  "09:00 AM",
-                                  style: TextStyle(color: Colors.white70),
+                          GestureDetector(
+                            onTap: (){
+                              _scaffoldKey.currentState
+                                  .showSnackBar(SnackBar(content: Text("Timer has been set")));
+                            },
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: <Widget>[
+                                Image.asset(
+                                  "assets/images/time_in_option1.png",
+                                  width: MediaQuery.of(context).size.width / 2.5,
                                 ),
-                              )
-                            ],
+                                Positioned(
+                                  bottom: 2,
+                                  child: Text(
+                                    "09:00 AM",
+                                    style: TextStyle(color: Colors.white70),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
-                          Stack(
-                            alignment: Alignment.center,
-                            children: <Widget>[
-                              Image.asset(
-                                "assets/images/time_out_option1.png",
-                                width: MediaQuery.of(context).size.width / 2.5,
-                              ),
-                              Positioned(
-                                bottom: 2,
-                                child: Text(
-                                  "09:00 AM",
-                                  style: TextStyle(color: Colors.white70),
+                          GestureDetector(
+                            onTap: (){
+                              _scaffoldKey.currentState
+                                  .showSnackBar(SnackBar(content: Text("Timer has been removed")));
+                            },
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: <Widget>[
+                                Image.asset(
+                                  "assets/images/time_out_option1.png",
+                                  width: MediaQuery.of(context).size.width / 2.5,
                                 ),
-                              )
-                            ],
+                                Positioned(
+                                  bottom: 2,
+                                  child: Text(
+                                    "09:00 AM",
+                                    style: TextStyle(color: Colors.white70),
+                                  ),
+                                )
+                              ],
+                            ),
                           )
                         ],
                       ),
-                    ),
+                    ),),
                     Container(
                       margin: EdgeInsets.fromLTRB(0.0, 8.0, .0, .0),
                       child: Row(
@@ -665,10 +722,20 @@ class _JobsState extends State<Jobs> {
                               width: MediaQuery.of(context).size.width / 2.5,
                             ),
                           ),
-                          Image.asset(
-                            "assets/images/message.png",
-                            width: MediaQuery.of(context).size.width / 2.5,
-                          )
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => IndividualChat(),
+                        ));
+                  },
+                  child:
+                  Image.asset(
+                  "assets/images/message.png",
+                  width: MediaQuery.of(context).size.width / 2.5,
+                ),
+                )
                         ],
                       ),
                     )

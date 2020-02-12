@@ -1,4 +1,9 @@
+import 'dart:io';
+import 'dart:math';
+
 import 'package:customer_beta/constants/Constants.dart';
+import 'package:customer_beta/ui/splash/image/imagepickerhandler.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
 class IndividualChat extends StatefulWidget {
@@ -6,8 +11,33 @@ class IndividualChat extends StatefulWidget {
   _IndividualChatState createState() => _IndividualChatState();
 }
 
-class _IndividualChatState extends State<IndividualChat> {
+class _IndividualChatState extends State<IndividualChat> with TickerProviderStateMixin, ImagePickerListener{
   TextEditingController chatController = TextEditingController();
+  bool isEmoji = false;
+  double _height = 150;
+  List<File> conversationImages = List();
+  List<File> files;
+
+
+
+  AnimationController _controller;
+  ImagePickerHandler imagePicker;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    _controller = new AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    );
+    imagePicker = new ImagePickerHandler(this, _controller);
+    imagePicker.init();
+
+    super.initState();
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -135,15 +165,29 @@ class _IndividualChatState extends State<IndividualChat> {
                 ),
               ],
             ),
-            height: 150,
+            height: _height,
             child: Column(
               children: <Widget>[
+                isEmoji? SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+//                  child: EmojiPicker(
+//                    rows: 3,
+//                    columns: 7,
+//                    recommendKeywords: ["racing", "horse"],
+//                    numRecommended: 10,
+//                    onEmojiSelected: (emoji, category) {
+//                      chatController.text = chatController.text + emoji.toString().split("Emoji:")[1];
+//                    },
+//                  ),
+                child: Text("QWEQWE"),
+                ): Container(),
                 Row(
                   children: <Widget>[
                     Container(
                       margin: EdgeInsets.fromLTRB(10.0, .0, .0, .0),
                       width: MediaQuery.of(context).size.width -20 ,
                       child: TextFormField(
+
                         controller: chatController,
                         decoration: InputDecoration(
                             hintText: "Write your message...",
@@ -155,16 +199,46 @@ class _IndividualChatState extends State<IndividualChat> {
                 ),
                 Row(
                   children: <Widget>[
-                    Container(
-                        margin: EdgeInsets.fromLTRB(20.0, .0, .0, .0),
-                        child:Image.asset("assets/images/emoticons.png", width: 35, height: 35,)
+
+                   GestureDetector(
+                     onTap: (){
+                       getFiles();
+                     },
+                     child:  Container(
+                         margin: EdgeInsets.fromLTRB(20.0, .0, .0, .0),
+                         child: Image.asset("assets/images/file_upload.png", width: 35, height: 35,)
+                     ),
+                   ),GestureDetector(
+                      onTap: (){
+                        showImage();
+                      },
+                      child: Container(
+                          margin: EdgeInsets.fromLTRB(20.0, .0, .0, .0),
+                          child: Image.asset("assets/images/image_upload.png", width: 35, height: 35,)
+                      ),
                     ),
-                    Container(
-                      margin: EdgeInsets.fromLTRB(20.0, .0, .0, .0),
-                      child: Image.asset("assets/images/file_upload.png", width: 35, height: 35,)
-                    ),Container(
-                        margin: EdgeInsets.fromLTRB(20.0, .0, .0, .0),
-                        child: Image.asset("assets/images/image_upload.png", width: 35, height: 35,)
+
+                    Spacer(),
+                    GestureDetector(
+                      onTap: (){
+//                        check = -1;
+//                        showImage();
+                      chatController.text = "";
+                      },
+                      child: Container(
+                        margin: EdgeInsets.fromLTRB(0.0, 0.0, 20.0, 0.0),
+                        padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.blueAccent),
+                            color: Colors.blueAccent,
+                            borderRadius: BorderRadius.all(Radius.circular(50))
+                        ),
+                        child: Text("Send Message",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 18)),
+                      ),
                     )
                   ],
                 ),
@@ -174,5 +248,21 @@ class _IndividualChatState extends State<IndividualChat> {
         ],
       ),
     );
+  }
+
+  void showImage() {
+    imagePicker.showDialog(context);
+  }
+
+  @override
+  userImage(File _image) {
+    setState(() {
+      conversationImages.add(_image);
+    });
+    return null;
+  }
+
+  void getFiles() async {
+    files = await FilePicker.getMultiFile();
   }
 }

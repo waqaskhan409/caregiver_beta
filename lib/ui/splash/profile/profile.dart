@@ -1,5 +1,11 @@
 import 'package:customer_beta/constants/Constants.dart';
+import 'package:customer_beta/ui/splash/home/help.dart';
 import 'package:customer_beta/ui/splash/home/home.dart';
+import 'package:customer_beta/ui/splash/home/locationcoverage.dart';
+import 'package:customer_beta/ui/splash/home/setschedule.dart';
+import 'package:customer_beta/ui/splash/login/login.dart';
+import 'package:customer_beta/ui/splash/profile/bankaccount.dart';
+import 'package:customer_beta/ui/splash/profile/editprofile.dart';
 import 'package:flutter/material.dart';
 import 'package:customer_beta/ui/splash/chat/chat.dart';
 import 'package:customer_beta/ui/splash/jobs/jobs.dart';
@@ -12,11 +18,15 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+
+  int _selectedIndex = 4;
+  GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
-    int _selectedIndex = 4;
 
     return Scaffold(
+      key: _drawerKey,
         backgroundColor: Color.fromRGBO(245, 245, 245, 1.0),
         appBar: AppBar(
           backgroundColor: Colors.white,
@@ -155,6 +165,13 @@ class _ProfileState extends State<Profile> {
                         flex: 20,
                       ),
                       GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (_){
+                              return EditProfile();
+                            }
+                          ));
+                        },
                         child: Container(
                           margin: EdgeInsets.fromLTRB(.0, .0, .0, 70.0),
                           child: Image.asset(
@@ -182,6 +199,13 @@ class _ProfileState extends State<Profile> {
                   child: Column(
                     children: <Widget>[
                       GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(
+                              builder: (_){
+                                return SetSchedule();
+                              }
+                          ));
+                        },
                         child: Container(
                           margin: EdgeInsets.fromLTRB(20.0, 15.0, .0, 15.0),
                           child: Row(
@@ -204,6 +228,13 @@ class _ProfileState extends State<Profile> {
                       ),
                       Divider(),
                       GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(
+                              builder: (_){
+                                return BankAccount();
+                              }
+                          ));
+                        },
                         child: Container(
                           margin: EdgeInsets.fromLTRB(20.0, 15.0, .0, 15.0),
                           child: Row(
@@ -226,6 +257,11 @@ class _ProfileState extends State<Profile> {
                       ),
                       Divider(),
                       GestureDetector(
+                        onTap: (){
+                          _drawerKey.currentState
+                              .showSnackBar(SnackBar(content: Text('Learn more is in the process')));
+
+                        },
                         child: Container(
                           margin: EdgeInsets.fromLTRB(20.0, 15.0, .0, 15.0),
                           child: Row(
@@ -248,6 +284,13 @@ class _ProfileState extends State<Profile> {
                       ),
                       Divider(),
                       GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(
+                                builder: (_){
+                                  return LocationCoverage();
+                                }
+                            ));
+                          },
                         child: Container(
                           margin: EdgeInsets.fromLTRB(20.0, 15.0, .0, 15.0),
                           child: Row(
@@ -306,6 +349,13 @@ class _ProfileState extends State<Profile> {
                   child: Column(
                     children: <Widget>[
                       GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(
+                              builder: (_){
+                                return Help();
+                              }
+                          ));
+                        },
                         child: Container(
                           margin: EdgeInsets.fromLTRB(20.0, 15.0, .0, 15.0),
                           child: Row(
@@ -378,6 +428,13 @@ class _ProfileState extends State<Profile> {
                     child: Column(
                   children: <Widget>[
                     GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (_){
+                              return Login();
+                            }
+                        ));
+                      },
                       child: Container(
                         margin: EdgeInsets.fromLTRB(20.0, 15.0, .0, 15.0),
                         child: Row(

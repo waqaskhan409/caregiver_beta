@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:customer_beta/constants/Constants.dart';
+import 'package:customer_beta/ui/splash/chat/individualchat.dart';
 import 'package:customer_beta/ui/splash/jobs/progressreport.dart';
+import 'package:customer_beta/ui/splash/jobs/viewprofile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -17,6 +19,8 @@ class JobDetail extends StatefulWidget {
 }
 
 class _JobDetailState extends State<JobDetail> {
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
   Completer<GoogleMapController> _controller = Completer();
   static const LatLng _center = const LatLng(45.521563, -122.677433);
 
@@ -27,6 +31,7 @@ class _JobDetailState extends State<JobDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(
@@ -384,23 +389,32 @@ class _JobDetailState extends State<JobDetail> {
                                         ),
                                       ),
                                       Spacer(),
-                                      Container(
-                                        padding: EdgeInsets.fromLTRB(
-                                            18.0, 5.0, .0, 5.0),
-                                        width: 120,
-                                        decoration: BoxDecoration(
-                                          color:
-                                              Color.fromRGBO(19, 153, 159, 1.0),
-                                          border: Border.all(
-                                              color: Color.fromRGBO(
-                                                  19, 153, 159, 1.0)),
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(20)),
-                                        ),
-                                        child: Center(
-                                          child: Text(
-                                            "View Profile",
-                                            style: TextStyle(color: Colors.white),
+                                      GestureDetector(
+                                        onTap: (){
+                                          Navigator.push(context, MaterialPageRoute(
+                                              builder: (_){
+                                                return ViewProfile();
+                                              }
+                                          ));
+                                        },
+                                        child: Container(
+                                          padding: EdgeInsets.fromLTRB(
+                                              18.0, 5.0, .0, 5.0),
+                                          width: 120,
+                                          decoration: BoxDecoration(
+                                            color:
+                                            Color.fromRGBO(19, 153, 159, 1.0),
+                                            border: Border.all(
+                                                color: Color.fromRGBO(
+                                                    19, 153, 159, 1.0)),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(20)),
+                                          ),
+                                          child: Center(
+                                            child: Text(
+                                              "View Profile",
+                                              style: TextStyle(color: Colors.white),
+                                            ),
                                           ),
                                         ),
                                       )
@@ -664,7 +678,13 @@ class _JobDetailState extends State<JobDetail> {
                           ),
                         ),
                         GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => IndividualChat(),
+                                  ));
+                            },
                             child: Image.asset(
                               "assets/images/message.png",
                               width: MediaQuery.of(context).size.width / 2.5,
@@ -735,22 +755,31 @@ class _JobDetailState extends State<JobDetail> {
                                         ),
                                       ),
                                       Spacer(),
-                                      Container(
-                                        padding: EdgeInsets.fromLTRB(
-                                            18.0, 5.0, .0, 5.0),
-                                        width: 120,
-                                        decoration: BoxDecoration(
-                                          color:
-                                              Color.fromRGBO(19, 153, 159, 1.0),
-                                          border: Border.all(
-                                              color: Color.fromRGBO(
-                                                  19, 153, 159, 1.0)),
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(20)),
-                                        ),
-                                        child: Text(
-                                          "View Profile",
-                                          style: TextStyle(color: Colors.white),
+                                      GestureDetector(
+                                        onTap: (){
+                                          Navigator.push(context, MaterialPageRoute(
+                                              builder: (_){
+                                                return ViewProfile();
+                                              }
+                                          ));
+                                        },
+                                        child: Container(
+                                          padding: EdgeInsets.fromLTRB(
+                                              18.0, 5.0, .0, 5.0),
+                                          width: 120,
+                                          decoration: BoxDecoration(
+                                            color:
+                                            Color.fromRGBO(19, 153, 159, 1.0),
+                                            border: Border.all(
+                                                color: Color.fromRGBO(
+                                                    19, 153, 159, 1.0)),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(20)),
+                                          ),
+                                          child: Text(
+                                            "View Profile",
+                                            style: TextStyle(color: Colors.white),
+                                          ),
                                         ),
                                       )
                                     ],
@@ -1002,37 +1031,49 @@ class _JobDetailState extends State<JobDetail> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: <Widget>[
-                        Stack(
-                          alignment: Alignment.center,
-                          children: <Widget>[
-                            Image.asset(
-                              "assets/images/time_in_option1.png",
-                              width: MediaQuery.of(context).size.width / 2.5,
-                            ),
-                            Positioned(
-                              bottom: 2,
-                              child: Text(
-                                "09:00 AM",
-                                style: TextStyle(color: Colors.white70),
+                        GestureDetector(
+                          onTap: (){
+                            _scaffoldKey.currentState
+                                .showSnackBar(SnackBar(content: Text("Timer has been set")));
+                          },
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: <Widget>[
+                              Image.asset(
+                                "assets/images/time_in_option1.png",
+                                width: MediaQuery.of(context).size.width / 2.5,
                               ),
-                            )
-                          ],
+                              Positioned(
+                                bottom: 2,
+                                child: Text(
+                                  "09:00 AM",
+                                  style: TextStyle(color: Colors.white70),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
-                        Stack(
-                          alignment: Alignment.center,
-                          children: <Widget>[
-                            Image.asset(
-                              "assets/images/time_out_option1.png",
-                              width: MediaQuery.of(context).size.width / 2.5,
-                            ),
-                            Positioned(
-                              bottom: 2,
-                              child: Text(
-                                "09:00 AM",
-                                style: TextStyle(color: Colors.white70),
+                        GestureDetector(
+                          onTap: (){
+                            _scaffoldKey.currentState
+                                .showSnackBar(SnackBar(content: Text("Timer has been removed")));
+                          },
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: <Widget>[
+                              Image.asset(
+                                "assets/images/time_out_option1.png",
+                                width: MediaQuery.of(context).size.width / 2.5,
                               ),
-                            )
-                          ],
+                              Positioned(
+                                bottom: 2,
+                                child: Text(
+                                  "09:00 AM",
+                                  style: TextStyle(color: Colors.white70),
+                                ),
+                              )
+                            ],
+                          ),
                         )
                       ],
                     ),
@@ -1055,10 +1096,20 @@ class _JobDetailState extends State<JobDetail> {
                             width: MediaQuery.of(context).size.width / 2.5,
                           ),
                         ),
-                        Image.asset(
-                          "assets/images/message.png",
-                          width: MediaQuery.of(context).size.width / 2.5,
-                        )
+
+                        GestureDetector(
+                          onTap: (){
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => IndividualChat(),
+                                ));
+                          },
+                child:Image.asset(
+                        "assets/images/message.png",
+          width: MediaQuery.of(context).size.width / 2.5,
+        )
+            )
                       ],
                     ),
                   ),
@@ -1125,22 +1176,31 @@ class _JobDetailState extends State<JobDetail> {
                                         ),
                                       ),
                                       Spacer(),
-                                      Container(
-                                        padding: EdgeInsets.fromLTRB(
-                                            18.0, 5.0, .0, 5.0),
-                                        width: 120,
-                                        decoration: BoxDecoration(
-                                          color:
-                                              Color.fromRGBO(19, 153, 159, 1.0),
-                                          border: Border.all(
-                                              color: Color.fromRGBO(
-                                                  19, 153, 159, 1.0)),
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(20)),
-                                        ),
-                                        child: Text(
-                                          "View Profile",
-                                          style: TextStyle(color: Colors.white),
+                                      GestureDetector(
+                                        onTap: (){
+                                          Navigator.push(context, MaterialPageRoute(
+                                              builder: (_){
+                                                return ViewProfile();
+                                              }
+                                          ));
+                                        },
+                                        child: Container(
+                                          padding: EdgeInsets.fromLTRB(
+                                              18.0, 5.0, .0, 5.0),
+                                          width: 120,
+                                          decoration: BoxDecoration(
+                                            color:
+                                            Color.fromRGBO(19, 153, 159, 1.0),
+                                            border: Border.all(
+                                                color: Color.fromRGBO(
+                                                    19, 153, 159, 1.0)),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(20)),
+                                          ),
+                                          child: Text(
+                                            "View Profile",
+                                            style: TextStyle(color: Colors.white),
+                                          ),
                                         ),
                                       )
                                     ],
